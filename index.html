@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3D Ocean Data Visualization Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>3D Ocean Data Visualization Platform</h1>
+    <p>Interactive exploration of ocean model and observation data</p>
+</header>
+
+<main>
+
+    <!-- 3D EARTH -->
+    <div id="ocean-container"></div>
+
+
+    <!-- LEFT CONTROL PANEL -->
+    <div id="controls">
+
+        <h3>Ocean Controls</h3>
+
+        <label for="depth">
+            Depth: <span id="depthValue">0</span> m
+        </label>
+
+        <input
+            type="range"
+            id="depth"
+            min="0"
+            max="5000"
+            value="0"
+        >
+
+        <!-- TEMPERATURE LEGEND -->
+        <div class="legend">
+
+            <strong>Temperature (°C)</strong>
+
+            <div class="legend-item">
+                <span class="color-box cold"></span>
+                <span>&lt; 18°C — Cold</span>
+            </div>
+
+            <div class="legend-item">
+                <span class="color-box cool"></span>
+                <span>18–22°C — Cool</span>
+            </div>
+
+            <div class="legend-item">
+                <span class="color-box moderate"></span>
+                <span>22–25°C — Moderate</span>
+            </div>
+
+            <div class="legend-item">
+                <span class="color-box warm"></span>
+                <span>25–27°C — Warm</span>
+            </div>
+
+            <div class="legend-item">
+                <span class="color-box hot"></span>
+                <span>&gt; 27°C — Hot</span>
+            </div>
+
+        </div>
+
+
+        <!-- MISSION MODE -->
+        <button id="missionMode">
+            🚨 ACTIVATE MISSION MODE
+        </button>
+
+        <div id="missionResult">
+
+            <strong>Mission Status</strong>
+
+            <p>
+                System ready. Activate Mission Mode to scan observations.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PARAMETER TABLE -->
+    <div id="parameter-panel">
+
+        <h3>Ocean Parameters</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Temperature</td>
+                    <td id="tableTemperature">--</td>
+                    <td>°C</td>
+                </tr>
+
+                <tr>
+                    <td>Model Temperature</td>
+                    <td id="tableModelTemperature">--</td>
+                    <td>°C</td>
+                </tr>
+
+                <tr>
+                    <td>Difference</td>
+                    <td id="tableDifference">--</td>
+                    <td>°C</td>
+                </tr>
+
+                <tr>
+                    <td>Salinity</td>
+                    <td id="tableSalinity">--</td>
+                    <td>PSU</td>
+                </tr>
+
+                <tr>
+                    <td>Depth</td>
+                    <td id="tableDepth">--</td>
+                    <td>m</td>
+                </tr>
+
+                <tr>
+                    <td>Latitude</td>
+                    <td id="tableLatitude">--</td>
+                    <td>°</td>
+                </tr>
+
+                <tr>
+                    <td>Longitude</td>
+                    <td id="tableLongitude">--</td>
+                    <td>°</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- SELECTED OBSERVATION -->
+    <div id="data-card">
+
+        <h3>Selected Observation</h3>
+
+        <p>
+            Click an observation point on the globe
+            to inspect its data.
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- THREE.JS -->
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+    }
+}
+</script>
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

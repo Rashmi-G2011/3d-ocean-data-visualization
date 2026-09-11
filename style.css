@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061525;
+    color: white;
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+header {
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+    background: #0b2239;
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+header p {
+    margin: 0;
+    color: #b8d7ea;
+}
+
+
+/* 3D OCEAN */
+
+#ocean-container {
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+#ocean-container canvas {
+    display: block;
+}
+
+
+/* CONTROL PANEL */
+
+#controls {
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    width: 245px;
+    padding: 18px;
+    background: rgba(5, 25, 45, 0.94);
+    border: 1px solid rgba(100, 180, 220, 0.25);
+    border-radius: 14px;
+    text-align: left;
+    z-index: 5;
+    backdrop-filter: blur(8px);
+}
+
+#controls h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* DEPTH */
+
+#depth {
+    width: 100%;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+
+/* LEGEND */
+
+.legend {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.legend strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 7px 0;
+}
+
+.color-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.color-box.cold {
+    background: #0066ff;
+}
+
+.color-box.cool {
+    background: #00ccff;
+}
+
+.color-box.moderate {
+    background: #ffff00;
+}
+
+.color-box.warm {
+    background: #ff8800;
+}
+
+.color-box.hot {
+    background: #ff0000;
+}
+
+
+/* MISSION MODE BUTTON */
+
+#missionMode {
+    width: 100%;
+    padding: 12px;
+    margin-top: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #e63946,
+        #ff6b35
+    );
+
+    color: white;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#missionMode:hover {
+    transform: scale(1.03);
+}
+
+
+/* MISSION RESULT */
+
+#missionResult {
+    margin-top: 12px;
+    padding: 12px;
+
+    background: rgba(120, 20, 30, 0.25);
+
+    border: 1px solid rgba(255, 100, 100, 0.35);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+#missionResult strong {
+    color: #ff6b6b;
+}
+
+#missionResult p {
+    margin: 6px 0 0;
+    color: #c8dce8;
+}
+
+
+/* PARAMETER TABLE */
+
+#parameter-panel {
+    position: absolute;
+
+    left: 20px;
+    top: 120px;
+
+    width: 300px;
+
+    padding: 16px;
+
+    background: rgba(5, 25, 45, 0.94);
+
+    border: 1px solid rgba(100, 180, 220, 0.25);
+
+    border-radius: 14px;
+
+    z-index: 5;
+
+    backdrop-filter: blur(8px);
+}
+
+#parameter-panel h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+th {
+    text-align: left;
+    padding: 8px;
+
+    background: rgba(40, 100, 140, 0.35);
+
+    color: #bfe9ff;
+}
+
+td {
+    padding: 8px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    color: #d5e9f5;
+}
+
+td:nth-child(2) {
+    font-weight: bold;
+    color: white;
+}
+
+td:nth-child(3) {
+    color: #8fb5c9;
+}
+
+
+/* SELECTED OBSERVATION */
+
+#data-card {
+    position: absolute;
+
+    bottom: 25px;
+    left: 20px;
+
+    width: 300px;
+
+    padding: 16px;
+
+    background: rgba(5, 25, 45, 0.94);
+
+    border: 1px solid rgba(100, 180, 220, 0.25);
+
+    border-radius: 14px;
+
+    z-index: 5;
+
+    backdrop-filter: blur(8px);
+}
+
+#data-card h3 {
+    margin-top: 0;
+}
+
+#data-card p {
+    margin: 8px 0;
+
+    color: #b8d7ea;
+
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    #parameter-panel {
+        width: 250px;
+        transform: scale(0.85);
+        transform-origin: top left;
+    }
+
+    #controls {
+        width: 210px;
+        transform: scale(0.85);
+        transform-origin: top right;
+    }
+
+}
